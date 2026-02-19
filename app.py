@@ -35,8 +35,10 @@ balance=st.number_input('Balance')
 credit_score=st.number_input('Credit Score')
 tenure=st.number_input('Tenure', 0, 10)
 num_of_products=st.number_input('Number of Products', 1, 4)
-has_cr_card=st.selectbox('Has Credit Card', [0, 1])
-is_active_member=st.selectbox('Is Active Member', [0, 1])
+has_cr_card=st.selectbox('Has Credit Card', ['No', 'Yes'])
+has_cr_card = 1 if has_cr_card_ui == 'Yes' else 0
+is_active_member=st.selectbox('Is Active Member', ['No', 'Yes'])
+is_active_member = 1 if is_active_member_ui == 'Yes' else 0
 estimated_salary=st.number_input('Estimated Salary')
 
 input_data=pd.DataFrame({
@@ -59,4 +61,16 @@ input_data=pd.concat([input_data.reset_index(drop=True), geo_encoded_df], axis=1
 input_data_scaled=scaler.transform(input_data[scaler.feature_names_in_])
 
 input_data_scaled
+
+st.markdown("---") 
+if st.button('Predict Churn'):
+    prediction = model.predict(input_data_scaled)
+    prediction_proba = prediction[0][0]
+
+    st.subheader(f"Churn Probability: {prediction_proba:.2%}")
+    
+    if prediction_proba > 0.5:
+        st.error("The customer is likely to churn.")
+    else:
+        st.success("The customer is not likely to churn.")
 
