@@ -1,4 +1,4 @@
-tensorflow==2.20.0
+tensorflow==2.16.1
 pandas 
 numpy 
 scikit-learn
@@ -6,4 +6,4 @@ tensorboard
 matplotlib
 streamlit>=1.30.0
 scikeras
-protobuf==3.20.*
+protobuf==3.20.3
