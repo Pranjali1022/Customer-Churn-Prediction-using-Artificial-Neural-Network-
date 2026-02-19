@@ -14,16 +14,16 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 import pandas as pd
 import pickle
 
-model= tf.keras.models.load_model('/content/model.h5')
+model= tf.keras.models.load_model('model.h5')
 
 #load the scaler and encoder
-with open("/content/onehot_encoder_geo.pkl", 'rb') as file:
+with open("onehot_encoder_geo.pkl", 'rb') as file:
   onehot_encoder_geo=pickle.load(file)
 
-with open("/content/label_encoder_gender.pkl", 'rb') as file:
+with open("label_encoder_gender.pkl", 'rb') as file:
   label_encoder_gender=pickle.load(file)
 
-with open("/content/scaler.pkl", 'rb') as file:
+with open("scaler.pkl", 'rb') as file:
   scaler=pickle.load(file)
 
 st.title("Customer Churn Prediction")
