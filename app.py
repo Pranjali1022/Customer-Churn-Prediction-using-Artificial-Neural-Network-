@@ -60,8 +60,6 @@ input_data=pd.concat([input_data.reset_index(drop=True), geo_encoded_df], axis=1
 
 input_data_scaled=scaler.transform(input_data[scaler.feature_names_in_])
 
-input_data_scaled
-
 st.markdown("---") 
 if st.button('Predict Churn'):
     prediction = model.predict(input_data_scaled)
