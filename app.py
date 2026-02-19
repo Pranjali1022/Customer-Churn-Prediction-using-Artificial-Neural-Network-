@@ -74,3 +74,26 @@ if st.button('Predict Churn'):
     else:
         st.success("The customer is not likely to churn.")
 
+with st.expander("About this project"):
+    st.markdown(  """
+## 📌 Project Overview
+
+This project predicts whether a bank customer is likely to churn (leave the bank) using a deep learning model built with TensorFlow/Keras.
+The solution includes:
+
+* Data preprocessing pipeline (encoding + scaling)
+* Artificial Neural Network model
+* Model persistence using `.h5` and `.pkl` files
+* Streamlit web application for real-time prediction
+
+The system takes customer attributes as input and outputs the probability of churn.
+
+---
+
+## 🎯 Objectives
+
+* Build a supervised machine learning model to predict customer churn
+* Apply feature engineering and preprocessing techniques
+* Deploy the trained ANN model via a user-friendly web interface
+* Demonstrate an end-to-end ML workflow from training to deployment
+""")
